@@ -1,40 +1,25 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Recipe App (UI)</title>
-  <link rel="stylesheet" href="/styles.css" />
-</head>
-<body>
-  <div class="container">
-    <h1>Recipe App</h1>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Recipe App (React UI)</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div id="root" class="container"></div>
 
-    <section id="add-recipe">
-      <h2>Add a recipe</h2>
-      <form id="recipe-form">
-        <input id="title" placeholder="Title" required />
-        <input id="ingredients" placeholder="Ingredients (comma separated)" />
-        <textarea id="instructions" placeholder="Instructions"></textarea>
-        <button type="submit">Add</button>
-      </form>
-    </section>
+    <!-- Copilot hint: generate a small React app (JSX) that fetches /api/recipes, renders a searchable list,
+         and provides a form to add recipes. Use hooks (useState/useEffect). We'll load React + Babel from CDN
+         so you can edit JSX directly in `public/react-app.js`. -->
 
-    <section id="search">
-      <input id="search-input" placeholder="Search recipes..." />
-    </section>
+    <!-- React and ReactDOM (development builds via CDN) -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- Babel to allow JSX in the browser (dev only) -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-    <section id="recipes">
-      <h2>Recipes</h2>
-      <ul id="recipe-list"></ul>
-    </section>
-  </div>
-
-  <script>
-    // Copilot hint: generate concise, accessible vanilla JS to fetch recipes from /api/recipes,
-    // render them into #recipe-list, implement search filtering on #search-input,
-    // and handle form submission to POST new recipes to /api/recipes. Keep code small and readable.
-  </script>
-  <script src="/app.js"></script>
-</body>
+    <!-- React app (JSX) -->
+    <script type="text/babel" src="/react-app.js"></script>
+  </body>
 </html>
