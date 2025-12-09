@@ -41,25 +41,158 @@
   {
     "id": "1765248901944",
     "title": "Avocado Toast",
-    "ingredients": ["2 slices bread", "1 ripe avocado", "salt", "pepper", "lemon juice"],
+    "ingredients": [
+      "2 slices bread",
+      "1 ripe avocado",
+      "salt",
+      "pepper",
+      "lemon juice"
+    ],
     "instructions": "Toast the bread. Mash avocado with salt, pepper, and lemon. Spread on toast and serve."
   },
   {
     "id": "1765248901945",
     "title": "Quick Chicken Curry",
-    "ingredients": ["500g chicken", "1 onion", "2 garlic cloves", "1 tbsp curry powder", "400g canned tomatoes", "salt"],
+    "ingredients": [
+      "500g chicken",
+      "1 onion",
+      "2 garlic cloves",
+      "1 tbsp curry powder",
+      "400g canned tomatoes",
+      "salt"
+    ],
     "instructions": "Sauté onion and garlic, add chicken and curry, add tomatoes and simmer until cooked. Serve with rice."
   },
   {
     "id": "1765248901946",
     "title": "Chocolate Chip Cookies",
-    "ingredients": ["2 1/4 cups flour", "1 tsp baking soda", "1 cup butter", "3/4 cup sugar", "3/4 cup brown sugar", "2 eggs", "2 cups chocolate chips"],
+    "ingredients": [
+      "2 1/4 cups flour",
+      "1 tsp baking soda",
+      "1 cup butter",
+      "3/4 cup sugar",
+      "3/4 cup brown sugar",
+      "2 eggs",
+      "2 cups chocolate chips"
+    ],
     "instructions": "Cream butter and sugars, add eggs, mix dry ingredients, fold in chips. Scoop and bake at 350°F for 10-12 minutes."
   },
   {
     "id": "1765248901947",
     "title": "Hearty Lentil Soup",
-    "ingredients": ["1 cup lentils", "1 carrot", "1 celery stalk", "1 onion", "4 cups vegetable broth", "salt", "pepper"],
+    "ingredients": [
+      "1 cup lentils",
+      "1 carrot",
+      "1 celery stalk",
+      "1 onion",
+      "4 cups vegetable broth",
+      "salt",
+      "pepper"
+    ],
     "instructions": "Sauté vegetables, add lentils and broth, simmer until tender. Season to taste."
+  },
+  {
+    "id": "1765249827426",
+    "title": "Berry Smoothie",
+    "ingredients": [
+      "1 cup berries",
+      "1 banana",
+      "1/2 cup yogurt"
+    ],
+    "instructions": "Blend all ingredients until smooth."
+  },
+  {
+    "id": "1765249827434",
+    "title": "Grilled Cheese",
+    "ingredients": [
+      "2 slices bread",
+      "2 slices cheese",
+      "butter"
+    ],
+    "instructions": "Butter bread, place cheese between slices, grill until golden."
+  },
+  {
+    "id": "1765249827438",
+    "title": "Simple Salad",
+    "ingredients": [
+      "lettuce",
+      "tomato",
+      "cucumber",
+      "olive oil",
+      "salt"
+    ],
+    "instructions": "Toss ingredients and dress with oil and salt."
+  },
+  {
+    "id": "1765249831982",
+    "title": "Berry Smoothie",
+    "ingredients": [
+      "1 cup berries",
+      "1 banana",
+      "1/2 cup yogurt"
+    ],
+    "instructions": "Blend all ingredients until smooth."
+  },
+  {
+    "id": "1765249831987",
+    "title": "Grilled Cheese",
+    "ingredients": [
+      "2 slices bread",
+      "2 slices cheese",
+      "butter"
+    ],
+    "instructions": "Butter bread, place cheese between slices, grill until golden."
+  },
+  {
+    "id": "1765249831991",
+    "title": "Simple Salad",
+    "ingredients": [
+      "lettuce",
+      "tomato",
+      "cucumber",
+      "olive oil",
+      "salt"
+    ],
+    "instructions": "Toss ingredients and dress with oil and salt."
+  },
+  {
+    "id": "1765249836523",
+    "title": "Berry Smoothie",
+    "ingredients": [
+      "1 cup berries",
+      "1 banana",
+      "1/2 cup yogurt"
+    ],
+    "instructions": "Blend all ingredients until smooth."
+  },
+  {
+    "id": "1765249836529",
+    "title": "Grilled Cheese",
+    "ingredients": [
+      "2 slices bread",
+      "2 slices cheese",
+      "butter"
+    ],
+    "instructions": "Butter bread, place cheese between slices, grill until golden."
+  },
+  {
+    "id": "1765249836533",
+    "title": "Simple Salad",
+    "ingredients": [
+      "lettuce",
+      "tomato",
+      "cucumber",
+      "olive oil",
+      "salt"
+    ],
+    "instructions": "Toss ingredients and dress with oil and salt."
+  },
+  {
+    "id": "1765249880458",
+    "title": "__curl_test_sample__",
+    "ingredients": [
+      "test"
+    ],
+    "instructions": "curl test"
   }
 ]
