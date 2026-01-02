@@ -1,14 +1,40 @@
-const { useState, useEffect } = React;
+const { useState, useEffect, useRef } = React;
 
 function RecipeList({ recipes, onSelect }) {
   if (!recipes || recipes.length === 0) return <div><h3>No recipes found</h3></div>;
   return (
-    <div>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '16px' }}>
       {recipes.map(r => (
-        <div key={r.id} className="recipe" onClick={() => onSelect(r.id)} style={{ cursor: 'pointer' }}>
-          <h3>{r.title}</h3>
-          <p><strong>Ingredients:</strong> {(r.ingredients || []).join(', ')}</p>
-          <p>{r.instructions.slice(0, 120)}{(r.instructions || '').length > 120 ? '…' : ''}</p>
+        <div 
+          key={r.id} 
+          className="recipe-card" 
+          onClick={() => onSelect(r.id)} 
+          style={{ 
+            cursor: 'pointer',
+            background: '#fff',
+            border: '1px solid #e0e0e0',
+            borderRadius: '8px',
+            padding: '16px',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            transition: 'transform 0.2s, box-shadow 0.2s'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-2px)';
+            e.currentTarget.style.boxShadow = '0 4px 8px rgba(0,0,0,0.15)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+          }}
+        >
+          <h3 style={{ margin: '0 0 8px 0', color: '#333' }}>{r.title}</h3>
+          <p style={{ margin: '4px 0', fontSize: '14px', color: '#666' }}>
+            <strong>Ingredients:</strong> {(r.ingredients || []).slice(0, 3).join(', ')}
+            {(r.ingredients || []).length > 3 ? '...' : ''}
+          </p>
+          <p style={{ margin: '4px 0', fontSize: '13px', color: '#888' }}>
+            {((r.instructions || '').slice(0, 100))}{(r.instructions || '').length > 100 ? '…' : ''}
+          </p>
         </div>
       ))}
     </div>
@@ -18,15 +44,39 @@ function RecipeList({ recipes, onSelect }) {
 function RecipeDetail({ recipe, onBack }) {
   if (!recipe) return null;
   return (
-    <div>
-      <button onClick={onBack} style={{ marginBottom: 12 }}>← Back</button>
-      <h2>{recipe.title}</h2>
-      <h3>Ingredients</h3>
-      <ul>
-        {(recipe.ingredients || []).map((ing, i) => <li key={i}>{ing}</li>)}
-      </ul>
-      <h3>Instructions</h3>
-      <p style={{ whiteSpace: 'pre-wrap' }}>{recipe.instructions}</p>
+    <div style={{
+      background: '#fff',
+      border: '1px solid #e0e0e0',
+      borderRadius: '8px',
+      padding: '24px',
+      boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+    }}>
+      <button 
+        onClick={onBack} 
+        style={{ 
+          marginBottom: 16,
+          padding: '8px 16px',
+          background: '#f0f0f0',
+          border: '1px solid #ddd',
+          borderRadius: '4px',
+          cursor: 'pointer'
+        }}
+      >
+        ← Back to Recipes
+      </button>
+      <h2 style={{ marginTop: 0, color: '#333' }}>{recipe.title}</h2>
+      <div style={{ marginTop: '20px' }}>
+        <h3 style={{ color: '#555', borderBottom: '2px solid #eee', paddingBottom: '8px' }}>Ingredients</h3>
+        <ul style={{ lineHeight: '1.8' }}>
+          {(recipe.ingredients || []).map((ing, i) => (
+            <li key={i} style={{ marginBottom: '4px' }}>{ing}</li>
+          ))}
+        </ul>
+      </div>
+      <div style={{ marginTop: '24px' }}>
+        <h3 style={{ color: '#555', borderBottom: '2px solid #eee', paddingBottom: '8px' }}>Instructions</h3>
+        <p style={{ whiteSpace: 'pre-wrap', lineHeight: '1.6', color: '#444' }}>{recipe.instructions}</p>
+      </div>
     </div>
   );
 }
@@ -74,14 +124,15 @@ function App() {
   const [recipes, setRecipes] = useState([]);
   const [query, setQuery] = useState('');
   const [selectedId, setSelectedId] = useState(null);
+  const mountedRef = useRef(true);
 
   useEffect(() => {
-    let mounted = true;
+    mountedRef.current = true;
     fetch('/api/recipes')
       .then(r => r.json())
-      .then(data => { if (mounted) setRecipes(data); })
-      .catch(() => { if (mounted) setRecipes([]); });
-    return () => { mounted = false; };
+      .then(data => { if (mountedRef.current) setRecipes(data); })
+      .catch(() => { if (mountedRef.current) setRecipes([]); });
+    return () => { mountedRef.current = false; };
   }, []);
 
   function addRecipe(newRecipe) {
